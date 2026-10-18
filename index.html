@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="img/favicon.ico" />
+        <title>Godbite - the Aristocrats. Zamów debiutancką płytę.</title>
+        <meta name="description" content="Godbite - The Aristocrats; Zamów debiutancką płytę." />
+        <meta name="keywords" content="Godbite - The Aristocrats; Zamów debiutancką płytę." />
+        <meta property="og:image" content="img/share_icon.jpg" />
+        <meta property="og:title" content="Godbite - The Aristocrats" />
+        <meta property="og:type"  content="website" />
+        <meta name="viewport" content="width=1100">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="js/parallax-master/deploy/jquery.parallax.js"></script>
+        <script src="js/share/share-button.min.js"></script>
+        <link rel="stylesheet" href="js/share/share-button.min.css">
+        <script src="js/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <link rel="stylesheet" href="js/magnific-popup/magnific-popup.css">
+        <script src="js/masonry.pkgd.min.js"></script>
+        <link rel="stylesheet" href="css/godbite.css">
+        
+        <script src="js/sweetalert/sweet-alert.js"></script>
+        <link rel="stylesheet" href="js/sweetalert/sweet-alert.css">
+        <link rel="stylesheet" href="js/sweetalert/sweet-alert-ie9.css">
+        
+        <script>
+$(function () {
+    $('.fluid-scene').parallax();
+
+    $(window).on('load', function () {
+        setTimeout(function () {
+            $('#loading-sigil').fadeOut(200);
+        }, 2000);
+        
+        });
+    
+    $('.playlist .left-column li:not(.disabled)').click(function(){
+        $('.playlist .left-column li').removeClass('active');
+        $(this).addClass('active');
+        var to = $(this);
+        $('.playlist .right-column .txt-wrap').finish().fadeOut(500, function(){
+            $('.playlist .right-column div.cont').hide();
+            $('.playlist .right-column .txt[data-no="'+to.data('no')+'"]').css('display', 'block');
+            $('.playlist .right-column .txt-wrap').fadeIn(1000);
+        });
+        
+        $('.playlist .movie-player iframe').attr('src','https://www.youtube.com/embed/'+to.data('yt')+'?showinfo=0').parent().fadeIn(1000);
+    });
+    
+     var shareButton = new ShareButton({
+            ui: {
+                buttonText:  'share'
+            }
+        });
+        
+        $('.mp-image').magnificPopup({
+            type: 'image',
+            closeOnContentClick: true,
+            closeBtnInside: false,
+            fixedContentPos: true,
+            cursor: 'mfp-zoom-out-cur',
+            mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+            image: {
+              verticalFit: true,
+              titleSrc: function(item) {
+                    return item.el.attr('title') + '<small>'+$(item.el).data('subtitle')+'</small>';
+                }
+            },       
+            zoom: {
+              enabled: true,
+              duration: 300 // don't foget to change the duration also in CSS
+            },
+             gallery:{
+                enabled:true
+            }
+        });    
+        
+        $(window).load(function(){ 
+            $('.masonry').masonry({
+                isFitWidth: true
+            });   
+         });
+         
+$('a[href*=#]').on('click', function(event){     
+    event.preventDefault();
+    $('html,body').animate({scrollTop:$(this.hash).offset().top-67}, 500);
+});
+
+            $(window).scroll(function (){
+                fixProjectNav();
+            }); 
+
+            current = 0;
+            function fixProjectNav(){
+                menu = {};
+                page_position = $(window).scrollTop();
+                // pasek projektu
+                if(page_position > 612){
+                   $('.top_bar').addClass('fixed');
+                }
+                else
+                {
+                  $('.top_bar').removeClass('fixed');
+                }
+
+
+            }
+
+            fixProjectNav();
+
+                
+
+});
+        </script>
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.5&appId=416234261904853";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div id="loading-sigil">
+            <img class="sigilogo animated-3s rotator" src="img/sigil.png" alt="">
+            <img class="godbite animated-3s pulse infinite" src="img/godbite.png" alt="">
+        </div>        
+        <div class="wrapper">
+            <ul class="fluid-scene scene unselectable"
+                data-friction-x="0.1"
+                data-friction-y="0.1"
+                data-scalar-x="15"
+                data-scalar-y="10">
+                <li class="layer" data-depth="0.00"></li>
+                <li class="layer" data-depth="0.10"><div class="background animated-20s pulse-up infinite"></div></li>
+                <li class="layer" data-depth="0.20"><div class="background_brud animated-20s organic infinite"></div></li>
+                <div class="top_sigil">
+                    <li class="layer" data-depth="0.40"><div class="godbite_logo-shadow animated-5s pulse infinite"></div></li>
+                    <li class="layer" data-depth="0.43"><div class="godbite_logo animated-5s pulse infinite"></div></li>
+                    <li class="layer" data-depth="0.45"><div class="godbite_logo animated-5s pulse infinite"></div></li>
+
+                    <li class="layer" data-depth="0.30"><div class="sigil-glow animated-10s pulse infinite "></div></li>
+                    <li class="layer" data-depth="0.33"><div class="sigil animated-10s pulse infinite opacity-50"></div></li>
+                    <li class="layer" data-depth="0.35"><div class="sigil animated-10s pulse infinite"></div></li>
+
+                    <li class="layer" data-depth="0.45"><div class="thearistocrats-shadow animated-10s organic-min infinite"></div></li>
+                    <li class="layer" data-depth="0.49"><div class="thearistocrats animated-10s organic-min infinite opacity-50"></div></li>
+                    <li class="layer" data-depth="0.50"><div class="thearistocrats animated-10s organic-min infinite"></div></li>
+                </div>
+
+                <li class="layer" data-depth="0.15"><div class="background_vignette"></div></li>
+                <li class="layer" data-depth="0.05">
+                    <div class="header-merch">
+                      <a href="mailto:porn@godbite.pl">porn@<em>godbite.pl</em></a><br/><br/>
+                    <share-button></share-button>
+                    </div>
+                </li>			
+            </ul>
+        </div>
+        <div class="top_bar">
+           <div class="wrapper mini">
+            <ul class="fluid-scene scene unselectable"
+                data-friction-x="0.1"
+                data-friction-y="0.1"
+                data-scalar-x="5"
+                data-scalar-y="2">
+                <li class="layer bar-hide" data-depth="0.10"><div class="background animated-20s pulse-up infinite"></div></li>
+                <li class="layer bar-hide" data-depth="0.20"><div class="background_brud animated-20s organic infinite"></div></li>
+                <li class="layer bar-hide" data-depth="0.00"><div class="colorize" style="background:#781313;"></div></li>              
+                <div class="band-logo bar-hide">
+                    <li class="layer" data-depth="0.21"><div class="godbite_logo-shadow animated-5s pulse infinite"></div></li>
+                    <li class="layer" data-depth="0.25"><div class="godbite_logo animated-5s pulse infinite"></div></li>
+                    <li class="layer" data-depth="0.29"><div class="godbite_logo animated-5s pulse infinite"></div></li>
+
+                    <li class="layer" data-depth="0.15"><div class="thearistocrats-shadow animated-10s organic-min infinite"></div></li>
+                    <li class="layer" data-depth="0.17"><div class="thearistocrats animated-10s organic-min infinite opacity-50"></div></li>
+                    <li class="layer" data-depth="0.19"><div class="thearistocrats animated-10s organic-min infinite"></div></li>
+                </div>
+                <li class="layer bar-hide" data-depth="0.15"><div class="background_vignette"></div></li>
+                <div class="layer" data-depth="0.15">
+                    <div class="site_menu">
+                        <a href="#order" class="mb">Order</a>
+                        <a href="http://facebook.com/godbite" target="_blank" class="fa fa-facebook"></a>
+                        <a href="http://youtube.com/godbiteband" target="_blank" class="fa fa-youtube"></a>
+                        <a href="http://instagram.com/godbite.pl" target="_blank" class="fa fa-instagram"></a>
+                    </div>
+                </div>
+            </ul>              
+         </div>
+        </div>
+        <section class="darkpurple">
+            <div class="lang-desc columns wc dimmer">
+                <div class="left-column">
+                    <h3 class="header-center">PL</h3>
+                    <p>“The Aristocrats” to sprawozdanie z mentalnej wędrówki, w której czas gra kluczową rolę, a jednak chronologia jest zaburzona. To wyczerpująca próba zapisu plątaniny myśli, zamiarów i czynności, które wynikają z siebie nawzajem.</p>
+                    <p class="smaller">Z odłamków intymnej duchowości i rzeczy nieuchwytnych powstaje kalejdoskop, w którym tworzy się bezładna historia o sprawach wulgarnych, o zwierzęcych instynktach. Utwory, które są w gruncie rzeczy piosenkami o kochaniu, wstręcie i złości, przesiąknięte są tematyką zupełnie nieosobistą; seks, uzależnienie i frustracja splatają się tutaj z kopenhaską interpretacją mechaniki kwantowej, zaburzeniami obsesyjno-kompulsyjnymi, dyskordianizmem, czy wynikami eksperymentu Johna Calhouna. Krótka ekstaza pornograficzna istnieje na równi z wzniosłymi pragnieniami i najgłębszymi obawami, a spełnienie staje się równoznaczne z poczuciem winy oraz porażką. </p>
+                    <p>Album przeistacza się z wyrażenia mieszaniny sprzecznych emocji i uczuć w swego rodzaju spowiedź, prywatny rytuał oczyszczenia, w zaklęcie chaoty. Pogrążenie i uwikłanie ma zarazem prowadzić do uwolnienia.</p>
+                    <p class="smaller">“The Aristocrats” nawiązuje do kultowego anty-dowcipu; każdy zna puentę (lub tak się wszystkim zdaje), liczy się więc tylko jego trwanie i przekazanie treści. Wszyscy wiemy jak to się kończy - bądźmy więc tu razem przez chwilę, by odbyć tę podróż. Podróż od rozdarcia, braku kontroli, przez krzywdę, panikę i izolację, do akceptacji i zrealizowania woli.</p>
+                    <p>Dla jednego to nieznaczna anegdota, dla innego wędrówka życia; wszyscy nauczymy się czegoś po drodze.</p>
+                    <a class="mp-image" href="img/cover3.jpg"><img src="img/cover3.jpg" style="width: 460px; margin-top: 30px;" /></a>
+                </div>
+                <div class="right-column">
+                    <h3 class="header-center">EN</h3>
+                    <p>“The Aristocrats” is a report from a mental journey where time plays a crucial role yet chronology is disrupted. It is a strenuous attempt at recording the tangle of thoughts, intents, and actions that arise from one another.</p>
+                    <p class="smaller">Shards of intimate spirituality and elusive things form a kaleidoscope that in turn gives rise to a confused story about the vulgar, about animal instincts. Pieces that are essentially songs of loving, abhorring, and anger, are pervaded by themes that are entirely impersonal; here, sex, addiction, and frustration are entwined with the Copenhagen interpretation of quantum mechanics, obsessive-compulsive disorder, Discordianism, as well as the findings of John Calhoun’s experiment. Short pornographic ecstasy exists on equal grounds with grand yearning and deepest fears, while fulfillment becomes tantamount to guilt and failure.</p>
+                    <p>From an expression of jumbled, conflicting emotions and feelings, the album transforms into a kind of confession, a private cleansing ritual, a chaote’s conjuration. The immersion and entanglement are to lead to liberation.</p>
+                    <p class="smaller">“The Aristocrats” refers to a cult anti-joke; everyone knows the punchline (or so they believe) and the only thing that counts is the duration, the delivery. We all know how this ends - let’s be here together for a while then, to make this trip. A trip from a state of being torn, of no control, through hurt, panic and isolation, to acceptance and the realisation of will.</p>
+                    <p>For one it’s an insignificant anecdote, for another the journey of a lifetime; we will all learn something along the way.</p>    
+                    <a class="mp-image" href="img/cover1.jpg"><img src="img/cover1.jpg" style="width: 460px; margin-top: 50px;" /></a>
+                </div>
+            </div>
+        </section>
+        <section class="darkblue dimmer">        
+    <div class="wrapper mini">
+            <ul class="fluid-scene scene unselectable"
+                data-friction-x="0.1"
+                data-friction-y="0.1"
+                data-scalar-x="15"
+                data-scalar-y="5">
+                <li class="layer" data-depth="0.10"><div class="background animated-20s pulse-up infinite"></div></li>
+                <li class="layer" data-depth="0.20"><div class="background_brud animated-20s organic infinite"></div></li>
+                <li class="layer" data-depth="0.00"><div class="colorize" style="background:#001764;"></div></li>
+                <div class="top_sigil">
+                    <li class="layer" data-depth="0.19"><div class="animated-10s pulse infinite header"><h2>the Aristocrats</h2></div></li>
+                    <li class="layer" data-depth="0.20"><div class="sigil-glow animated-10s pulse infinite "></div></li>
+                    <li class="layer" data-depth="0.23"><div class="sigil animated-10s pulse infinite opacity-50"></div></li>
+                    <li class="layer" data-depth="0.25"><div class="sigil animated-10s pulse infinite"></div></li>
+                </div>
+                <li class="layer" data-depth="0.15"><div class="background_vignette"></div></li>
+                
+            </ul>
+        </div>          
+
+            <div class="playlist columns wc">
+                <div class="oh">
+                    <div class="left-column">
+                        <ol>
+                            <li data-no="1" data-yt="Qp8WD2Iy9ic">david lynch</li>
+                            <li data-no="2" data-yt="eqe8YF45kXU">you can lead a horse</li>
+                            <li data-no="3" data-yt="UowR3gpiNcI">mothermeat</li>
+                            <li data-no="4" data-yt="NmlcKRXGUE8">camwhore</li>
+                            <li data-no="5" data-yt="uzyyrMedIfM">bear in mind</li>
+                            <li data-no="6" data-yt="woGdHhxbkVA">my home is yours</li>
+                            <li data-no="7" data-yt="A_fTfy4HnVc">schrödinger’s scat</li>
+                            <li data-no="8" data-yt="mSzycJuO0as">red herring</li>
+                            <li data-no="9" data-yt="nIAvXZ39zq4">till the cows come home</li>
+                        </ol>
+                    </div>
+                    <div class="right-column">
+                        <div class="txt-wrap">
+                            <div class="cont" style="font-size: 30px;"><i class="fa fa-angle-double-left"></i><br/><br/>the choice is out there</div>
+                            <div class="txt cont" data-no="1">
+                                    falling is the cord that ties me down<br />
+again - VHS noisefloor, drowning in the grain<br />
+faster forward<br />
+restart losing heart<br />
+victims of a wish<br />
+candy for your Cain<br />
+one thing: should you be taken seriously?<br />
+my link's dead and gone<br />
+check reality - flick no light on<br />
+something seizes me<br />
+vision completely freezes<br />
+please, let me...<br />
+overrated valuating our incarnations<br />
+I've been good, I've been bad<br />
+call me - I'm home<br />
+fakers making do, my ass being owned<br />
+raping your favourite thing<br />
+something to bet once all the results are in<br />
+read the line, wasting talent<br />
+breathing past lives into dice<br />
+money worth the world<br />
+no design, headroom high<br />
+I will remain paraphrased<br />
+I'm as wired as a fence, perseverant<br />
+I've been waiting for this for years<br />
+I've been saving for a sin<br />
+inch by tiny inch<br />
+time has found the safest home<br />
+I don't need to sleep, can't wait to wake<br />
+where's my pen?<br />
+no design, improvise<br />
+no timeframe, clear the tape<br />
+know you're wasting your time reading my mind<br />
+I've been faking all this for years<br />
+I've been saving for a sin<br />
+a day for the lynching<br />
+don't need to love<br />
+don't need to fuck<br />
+to see it<br />
+don't need to love<br />
+don't need to fuck<br />
+I've been there
+                            </div>
+                            <div class="txt cont" data-no="2">
+                                    look what you led your horse into<br />
+let her swing low, never let go<br />
+soft architecture - sweet recollection<br />
+flashback dream - gold seam<br />
+reloaded love, goaded lover<br />
+slave to the reins of something vulgar<br />
+revolver<br />
+every name will be a price to pay<br />
+for every bird you've heard me sing<br />
+scented pine and sea disappear for me<br />
+would I drain you dry?...<br />
+see jealousy build in blunder<br />
+kill for the thrill of lasting longer<br />
+revolver<br />
+<br />
+look what you led your horse into<br />
+ungrateful, ungrateful<br />
+next time you make your women dance<br />
+like pigs falling for the bait<br />
+pray to make it through the mud<br />
+dead straight<br />
+winter brings the frost<br />
+winner praise the loss<br />
+appreciation for the art<br />
+judgement of the heart, of skin<br />
+electric electric electric electric electric<br />
+hail, rain, musk<br />
+grind your heart to dust<br />
+love seeks something never lost<br />
+feed! force!<br />
+you can lead a horse<br />
+… to drown<br />
+see jealousy build in blunder<br />
+kill for the thrill of lasting longer<br />
+revolver<br />
+she tore her mane, trampled under<br />
+pain to remain, to dissolve her<br />
+revolver<br />
+you can lead a horse
+                            </div>
+                            <div class="txt cont" data-no="3">
+                                    these hues grow life<br />
+I think red suits you<br />
+when time feels just like swallowing sand<br />
+I'll know my primes<br />
+have I been away for too long, nursing my rhyme?<br />
+I know I rarely move a limb<br />
+engaged in solve, revolve, and vote<br />
+I hope I will never couple with<br />
+what you have guided me to know<br />
+Violette, I feel like scrubbing the sidewalks again<br />
+rake, I'll take my time<br />
+to develop myself or you blueprint me fine<br />
+mud bitch<br />
+quicksilver quick<br />
+the licking of venomous dick<br />
+waiting for life, sitting aside<br />
+under grease, caked - pale skeptic<br />
+chewing new meat, digesting rainbows<br />
+puking vomit of gray synthetic<br />
+so old<br />
+cannot help going and trying to clear the mould<br />
+it decided what I need and you don't need to go<br />
+I can't help it, I break in two<br />
+E-F-F-O-R-T I O U<br />
+waiting for life, sitting aside
+                            </div>
+                            <div class="txt cont" data-no="4">
+                                    distant business ties me down again, day-bound<br />
+instant vibrations lay waste to the boy once Amanda breathes in<br />
+lesson is learned hard<br />
+sum of all answers, freeze frame<br />
+I am home now, marvelling the partings never went so well<br />
+breathe in<br />
+missing has turned hard<br />
+beyond the dusty high - hell to light the wake<br />
+in this body I found my exit<br />
+into a voyeurist cull<br />
+<br />
+start over by tomorrow<br />
+the one is actually three and smiling<br />
+the killer must've been me<br />
+I'm alone now, facing the pulsing need<br />
+I'm gone for good as I recline<br />
+oh but I can dream<br />
+I pray that you've got what it takes to be my wife<br />
+lesson is learned hard<br />
+sleeping dogs will lie with strained eyes<br />
+while my fever's dying<br />
+five thousand angels burn into minds of our hosts<br />
+“you and I are finite flavours, keys, and cues; no time to waste, make our body move”<br />
+know your size on this night<br />
+all your sin spreads you thin<br />
+noise and bone, bread and home<br />
+voice and vein disobey<br />
+<br />
+coin your lies on this night<br />
+know your sin, heads - you win<br />
+draw the line that makes you mine<br />
+I cut through (like the moon)<br />
+stable through inertia, if I stop I fray to single strands<br />
+I've made my peace, I've drawn the line<br />
+I cross my heart and hope to try<br />
+friction to light to strengthen the system<br />
+reducing the devil back down to a stain on my jeans<br />
+I feel ready for summer<br />
+I can't help but hang my halo too high<br />
+no shame, no guilt, I just breathe<br />
+and I keep pushing through splinters and bars, crawling back from salvation<br />
+finally time to head home
+                            </div>
+                            <div class="txt cont" data-no="5">
+                                    another cow inside the meatkeep<br />
+where fleeced sheep and ram collide<br />
+I shove my horns into your heartbeat<br />
+you plant a seed inside my mind<br />
+think back<br />
+look back<br />
+keep track<br />
+is it safe?<br />
+your tree gave up all its fruit to trade for stronger roots<br />
+I burned the entire woods to make it to you<br />
+I wasn't all that inclined to check its wrongs or rights<br />
+now she's as vicious as you<br />
+bear in mind<br />
+design<br />
+bear in mind<br />
+break and gag her in the smoke<br />
+faking, tardy, out of hope<br />
+keeping heartbeats in the line<br />
+(getting closer to things we shouldn't know)<br />
+take this body and this oak<br />
+“take this body” Alice cried<br />
+reading minds makes for dead wives<br />
+you carry back your broken neck<br />
+dead birds and broken leaves<br />
+all the signs have failed me<br />
+some advice from the free:<br />
+plead insanity<br />
+held in tightly in the grey<br />
+raped and hungry, led astray<br />
+feed the heartache, cancer grows<br />
+(walked on water once, now pulled in low)<br />
+take this body and this oak<br />
+“take this body” Alice choked<br />
+reach inside me, tear it all<br />
+run, scout till you black out<br />
+she will kill you<br />
+digging to the bone for the fruit<br />
+way in me<br />
+convenient for concealing truth<br />
+afraid to let go of the tame<br />
+pondering savage harvesting<br />
+beg full release, come back to me<br />
+centrefold queen of cancerous dreams<br />
+saturated with gold
+                            </div>
+                            <div class="txt cont" data-no="6">
+                                    days won't contain me when I'm inside<br />
+the months cover eyes<br />
+those who trace the lines between the floorboards,<br />
+their welcome's outstayed<br />
+a weakness that you keep letting win will soon become unique<br />
+(it all belongs to him)<br />
+I count the truths we've lost to the thickness of the walls<br />
+I divide wisely<br />
+silence amid my friends - they know commitment<br />
+I forget I regret<br />
+burning through the threshold you share with me for re-alignment stains my feet<br />
+I bring hospitality<br />
+this could work<br />
+make these hands seemingly idle<br />
+how?<br />
+I know now all she needs is traces of dignity of a choice<br />
+all she needs is trophies<br />
+invest in second-best - mend to break, of course<br />
+I realise the phrase: “my home is yours”<br />
+they don't need your penitence, they only want you to...<br />
+kill your friends for me<br />
+let it end<br />
+let it in<br />
+scissors on your wedding day<br />
+rosy shredded grin<br />
+coward, coward<br />
+sever dirty skin<br />
+learning the tropes, breaking off more<br />
+we are broke and bare, we'll never make amends<br />
+my home is yours
+                            </div>
+                            <div class="txt cont" data-no="7">
+                                    he wants in<br />
+choices wear him thin<br />
+sand may find a way to turn to glass<br />
+experts only ever see black<br />
+(you best keep your secrets from me, who am I to say?)<br />
+you peek inside and bite the fruit, now half that world - it is gone<br />
+it's no longer what you dream – it's what have you done?<br />
+I never want to be caught dead specificity will Midas life to let-downs<br />
+through power-drunken cold illuminators<br />
+watch your back, it's changing hard<br />
+put your dream inside a morgue<br />
+more is key and less is more is more<br />
+sweep the stakes of come and see<br />
+make it A/B, unmake believe<br />
+glad you would, now get up<br />
+glad you would, it's not enough<br />
+and we will materialise to shreds<br />
+experts always play pretend<br />
+(I want it all to seem like more;  I keep all my eyes closed)<br />
+this was nothing, baby<br />
+just wait<br />
+the potential's coming back to me<br />
+this is nothing, baby<br />
+wait till you get paid<br />
+just wait till you see the money
+                            </div>
+                            <div class="txt cont" data-no="8">
+                                    EVERYTHING WILL FALL IN LINE<br />
+EFFORTS WILL EXTEND LIKE ARMS<br />
+TALENTS WILL SHARPEN AND TONGUES WILL DULL<br />
+MAY THE MAGNITUDE OF THEIR FOLLY BE REVEALED TO THEM IN A BLINDING FLASH IN YEARS' TIME<br />
+TIMELINES WILL SHRINK AND CONVOLVE<br />
+TO AID YOU
+                            </div>
+                            <div class="txt cont" data-no="9">
+                                    I've been waiting for too long, now this moment is more than opportune<br />
+quit your baying, your nay-saying<br />
+find the mind to shove your manifesto<br />
+I swear I'll be content when I am in control<br />
+another time, another mind may let this grow<br />
+let it all go<br />
+I hate to break it to you<br />
+I won't let you tear it from me<br />
+please don't let them feel supreme<br />
+so (b)elated<br />
+neglected maintenance<br />
+fashion statement<br />
+very customary<br />
+stifled, constipated, bad blood's circulating<br />
+got a little system and the system works<br />
+I pray it's fine, I can't deny I'm in control<br />
+another time I'll do it right and I'll explode<br />
+never again<br />
+I hate to break it to you<br />
+I won't let you tear it from me<br />
+please don't let them feel supreme<br />
+(everything will fall in line<br />
+efforts will extend like arms<br />
+talents will sharpen and tongues will dull<br />
+may the magnitude of their folly be revealed to them in a blinding flash in years' time<br />
+timelines will shrink and convolve<br />
+to aid you)<br />
+surely, slowly, surely...<br />
+your deliberating doesn't even phase me<br />
+I've got the spite to do this for another year<br />
+a friend for life<br />
+need more time<br />
+benevolent time<br />
+(give me more time)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie-player">
+                    <iframe width="750" height="422" src="" frameborder="0" allowfullscreen></iframe>
+                </div>                
+            </div>
+
+        </section>
+
+  <section id="order" class="darkcyan dimmer">
+            <div class="wrapper mini">
+                <ul class="fluid-scene scene unselectable"
+                    data-friction-x="0.1"
+                    data-friction-y="0.1"
+                    data-scalar-x="15"
+                    data-scalar-y="5">
+                    <li class="layer" data-depth="0.00"></li>
+                    <li class="layer" data-depth="0.10"><div class="background animated-20s pulse-up infinite"></div></li>
+                    <li class="layer" data-depth="0.20"><div class="background_brud animated-20s organic infinite"></div></li>
+                    <li class="layer" data-depth="0.00"><div class="colorize" style="background:#007E77;"></div></li>
+                    <div class="top_sigil">
+                        <li class="layer" data-depth="0.19"><div class="animated-10s pulse infinite header"><h2>Order</h2></div></li>
+                        <li class="layer" data-depth="0.20"><div class="sigil-glow animated-10s pulse infinite "></div></li>
+                        <li class="layer" data-depth="0.23"><div class="sigil animated-10s pulse infinite opacity-50"></div></li>
+                        <li class="layer" data-depth="0.25"><div class="sigil animated-10s pulse infinite"></div></li>
+                    </div>
+                    <li class="layer" data-depth="0.15"><div class="background_vignette"></div></li>		
+                </ul>
+            </div>
+            <div class="buy">
+                <div class="buy-type darkcyan">
+                    <div class="oh wc">
+                        <div class="left-column">
+                                <div class="taj">                            
+                                                            <p>Prezentowany materiał to efekt niezliczonych godzin wysiłku jak i wielu litrów krwi, potu, łez i nasienia. Pomóż nam odnowić zapasy płynów ustrojowych poprzez zakup naszego oficjalnego wydawnictwa.</p>
+
+                                <p>Chcemy, żebyście zapamiętali ten album nie tylko za muzykę. W czasach, gdy sprzedaż fizycznych płyt spada, przygotowaliśmy coś więcej - artefakt.</p>
+
+                                    <p>W skład wydania wchodzi:</p>
+                                    <ul class="lista">
+                                        <li>płyta CD z naszą muzyką</li>
+                                        <li>unikalne fizyczne wydawnictwo z możliwością modyfikacji okładki za pomocą załączonych kart</li>        
+                                        <li>10 kart oznaczonych sigilami; każdy z nich stanowi zaklęcie związane z danym utworem i historią</li>
+                                        <li>zestaw wlep Godbite w czterech wzorach</li>
+                                        <li>link do cyfrowej wersji wydania</li>
+                                        <li>nasza dozgonna wdzięczność</li>
+                                    </ul>
+                                </div>
+                                <a class="mp-image" href="img/cover3.jpg"><img src="img/cover3.jpg" style="width: 220px; margin-top: 30px; margin-right: 3px;" /></a>
+                                <a class="mp-image" href="img/cover2.jpg"><img src="img/cover2.jpg" style="width: 220px; margin-top: 30px;" /></a>    
+
+
+                            <div class="tal">
+                                <br /> <br/>Wypełnij formularz lub skontaktuj się z nami: <a class="two_color" href="mailto:order@godbite.pl">order<em>@godbite.pl</em></a><br/>
+                                <br/>Cena: 29,99 PLN <small>(+ przesyłka 6zł / odbiór osobisty: 0zł)</small><br />
+                            </div>                                
+                        </div>
+                        <div class="right-column">
+                            <div class="taj">                            
+                                                        <p>The presented material is a result of countless hours of effort, as well as many litres of blood, sweat, tears, and ejaculate. Help us regenerate our fluids by purchasing our official release.</p>
+
+                            <p>We want you to remember this album not only for its music. In a time when record sales are plummeting, we have prepared something more - an artifact.</p>
+
+                                <p>The release consists of:</p>
+                                <ul class="lista">
+                                    <li>our music on CD</li>
+                                    <li>a unique physical package with a cover that is modifiable with the cards attached</li>        
+                                    <li>10 cards marked with sigils; each one constitutes a spell associated with a given song and story</li>
+                                    <li>a set of Godbite stickers in four designs</li>
+                                    <li>a digital release link</li>
+                                    <li>our everlasting gratitude</li>
+                                </ul>
+                            </div>
+
+                            <a class="mp-image" href="img/cover1.jpg"><img src="img/cover1.jpg" style="width: 220px; margin-top: 30px; margin-right: 3px;" /></a>
+                            <a class="mp-image" href="img/cover4.jpg"><img src="img/cover4.jpg" style="width: 220px; margin-top: 30px;" /></a>  
+                                <div class="tal">
+                                    <br /> <br/>Fill out the form below or contact us via <a class="two_color" href="mailto:order@godbite.pl">order<em>@godbite.pl</em></a><br/>
+                                    <br/>Price: 8€ <small>(+ shipping 5€/EU, 2€/PL)</small><br />
+                                </div>
+                        </div>
+                    </div>
+                    <div id="order-form" class="order-form wc">
+                    <form id="order-form-static">
+                        
+                        <textarea name="tresc" placeholder="Adres, dodatowe info / delivery address, additional info"></textarea>
+                        <input type="text" name="name" value="" placeholder="imię / name">
+                        <input type="text" name="email" value="" placeholder="email">
+                        <input type="text" name="ilosc" value="" placeholder="ilość / Qty">
+                        <input type="submit" value="Zamów" class="button">
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="darkred dimmer">        
+            <div class="wrapper mini">
+                <ul class="fluid-scene scene unselectable"
+                    data-friction-x="0.1"
+                    data-friction-y="0.1"
+                    data-scalar-x="15"
+                    data-scalar-y="5">
+                    <li class="layer" data-depth="0.00"></li>
+                    <li class="layer" data-depth="0.10"><div class="background animated-20s pulse-up infinite"></div></li>
+                    <li class="layer" data-depth="0.20"><div class="background_brud animated-20s organic infinite"></div></li>
+                    <li class="layer" data-depth="0.00"><div class="colorize" style="background:#661414;"></div></li>
+                    <div class="top_sigil">
+                        <li class="layer" data-depth="0.19"><div class="animated-10s pulse infinite header"><h2>Corpse painting</h2></div></li>                    
+                        <li class="layer" data-depth="0.20"><div class="sigil-glow animated-10s pulse infinite "></div></li>
+                        <li class="layer" data-depth="0.23"><div class="sigil animated-10s pulse infinite opacity-50"></div></li>
+                        <li class="layer" data-depth="0.25"><div class="sigil animated-10s pulse infinite"></div></li>
+                    </div>
+                    <li class="layer" data-depth="0.15"><div class="background_vignette"></div></li>		
+                </ul>
+            </div>
+            <div class="wc">
+                <div class="galeria_media masonry">
+                                            <a class="mp-image" href="img/gallery/godbite-01.jpg" title="Photo no 1" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-01.jpg" alt="Photo no 1" /></a>
+                        <a class="mp-image" href="img/gallery/godbite-02.jpg" title="Photo no 2" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-02.jpg" alt="Photo no 2" /></a>
+                        <a class="mp-image" href="img/gallery/godbite-03.jpg" title="Photo no 3" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-03.jpg" alt="Photo no 3" /></a>
+                        <a class="mp-image" href="img/gallery/godbite-04.jpg" title="Photo no 4" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-04.jpg" alt="Photo no 4" /></a>
+                        <a class="mp-image" href="img/gallery/godbite-05.jpg" title="Photo no 5" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-05.jpg" alt="Photo no 5" /></a>
+                        <a class="mp-image" href="img/gallery/godbite-06.jpg" title="Photo no 6" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-06.jpg" alt="Photo no 6" /></a>
+                        <a class="mp-image" href="img/gallery/godbite-07.jpg" title="Photo no 7" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-07.jpg" alt="Photo no 7" /></a>
+                        <a class="mp-image" href="img/gallery/godbite-08.jpg" title="Photo no 8" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-08.jpg" alt="Photo no 8" /></a>
+                        <a class="mp-image" href="img/gallery/godbite-09.jpg" title="Photo no 9" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-09.jpg" alt="Photo no 9" /></a>
+                        <a class="mp-image" href="img/gallery/godbite-10.jpg" title="Photo no 10" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-10.jpg" alt="Photo no 10" /></a>
+                        <a class="mp-image" href="img/gallery/godbite-11.jpg" title="Photo no 11" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-11.jpg" alt="Photo no 11" /></a>
+                        <a class="mp-image" href="img/gallery/godbite-12.jpg" title="Photo no 12" data-subtitle="The Aristocrats behind Godbite"><img src="img/gallery/thumb/godbite-12.jpg" alt="Photo no 12" /></a>
+
+                </div>
+            </div>
+        </section>        
+        
+        <section>
+            <footer class="black">
+                <div class="wc">
+                    <div class="fl">
+                        contact: <a href="mailto:porn@godbite.pl">porn<em>@godbite.pl</em></a><br/>
+                        gigs: <a href="mailto:management@@godbite.pl">management<em>@godbite.pl</em></a><br/>
+                        stuff: <a href="mailto:merch@godbite.pl">merch<em>@godbite.pl</em></a><br/>
+
+                    </div>
+                    <div class="fr">
+                        Design/code: <a href="http://houseofplates.pl">hoRacy / housofplates.pl</a>
+                    </div>
+                </div>
+            </footer>
+        </section>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-833469-24', 'auto');
+          ga('send', 'pageview');
+
+        </script>        
+    <script>
+(function () {
+    var orderForm = document.getElementById('order-form-static');
+    if (!orderForm) {
+        return;
+    }
+
+    orderForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var message = 'Sprzedaż online zakończona. Skontatkuj się z nami przez media społecznościowe zespołu';
+
+        if (typeof window.swal === 'function') {
+            window.swal({ title: 'Informacja', text: message, type: 'info' });
+        } else {
+            window.alert(message);
+        }
+    });
+}());
+</script>
+</body>
+</html>
